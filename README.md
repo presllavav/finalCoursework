@@ -13,5 +13,6 @@ The tests 7 automation tests:
 5. ValidationLayoutLoginPageTest
 6. ValidationLayoutTest
 7. ValidationLoginTest
+   
    The types of the tests are regresion test, e2e test, test with negative path, test with positive path,unit test, smoke test.
    
