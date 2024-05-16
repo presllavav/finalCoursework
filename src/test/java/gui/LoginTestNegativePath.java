@@ -118,7 +118,7 @@ public class LoginTestNegativePath {
         passwordInputField.clear();
         passwordInputField.sendKeys("presi");
 
-        System.out.println("Step 5 : *** The user submits the the login form by clicking on login submit button");
+        System.out.println("Step 5 : *** The user submits the the login form by clicking on login submit button and error is shown");
         WebElement loginFormSubmitButton = driver.findElement(By.cssSelector("#sign-in-button"));
 
         loginFormSubmitButton.click();
