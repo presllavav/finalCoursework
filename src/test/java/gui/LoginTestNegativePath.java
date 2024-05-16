@@ -1,4 +1,4 @@
-package gui.base;
+package gui;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

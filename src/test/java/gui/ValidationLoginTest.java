@@ -1,13 +1,14 @@
-package gui.base;
+package gui;
 
 import com.skillo.POM.HomePage;
+import gui.base.TestBase;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class ValidationLoginTest extends TestBase{
+public class ValidationLoginTest extends TestBase {
     public static final int WAIT = 3333;
 
     @Test

@@ -1,7 +1,8 @@
-package gui.base;
+package gui;
 
 import com.skillo.POM.HomePage;
 import com.skillo.POM.LoginPage;
+import gui.base.TestBase;
 import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.Test;
