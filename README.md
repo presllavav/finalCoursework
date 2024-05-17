@@ -10,7 +10,7 @@ The tests 7 automation tests:
 2. LoginTestNegativePath 
 3. RegistrationTest
 4. SeleniumVanillaLoginTest
-5. ValidationLayoutLoginPageTest
+5. ValidationLayoutLoginPageTest (in test case is shown, that by wrong element width or wrong element height, the validation of the layout login page failed)
 6. ValidationLayoutTest
 7. ValidationLoginTest
    
