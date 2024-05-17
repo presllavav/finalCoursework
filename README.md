@@ -11,7 +11,7 @@ The tests 7 automation tests:
 3. RegistrationTest
 4. SeleniumVanillaLoginTest
 5. ValidationLayoutLoginPageTest (in test case is shown, that by wrong element width or wrong element height, the validation of the layout login page failed)
-6. ValidationLayoutTest
+6. ValidationLayoutTest (in test case is shown, that by right element width and right element height, the validation of the layout in home page is successful)
 7. ValidationLoginTest
    
    The types of the tests are regresion test, e2e test, test with negative path, test with positive path,unit test, smoke test.
