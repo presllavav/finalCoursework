@@ -15,6 +15,7 @@ public class ValidationLayoutTest extends TestBase {
     public void validateThereIsAHomeIconInHomePageLayout() throws InterruptedException {
 
         HomePage homePage = new HomePage(super.driver, (Logger) log);
+        homePage.openHomePage();
 
 
         WebElement element = driver.findElement(By.id("homeIcon"));

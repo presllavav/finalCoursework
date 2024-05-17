@@ -26,7 +26,7 @@ public class ValidationLayoutLoginPageTest extends TestBase {
 
 
         WebElement element = driver.findElement(By.xpath("/html/body/app-root/div[2]/app-login/div/div/form"));
-        if(element.isDisplayed() && element.getSize().getWidth() == 233 && element.getSize().getHeight() == 368) {
+        if(element.isDisplayed() && element.getSize().getWidth() == 233 && element.getSize().getHeight() == 200) {
             System.out.println("Layout Login page validation successful");
         } else {
             System.out.println("Layout Login page validation failed");

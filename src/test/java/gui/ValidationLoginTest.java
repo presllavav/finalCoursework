@@ -15,6 +15,7 @@ public class ValidationLoginTest extends TestBase {
     public void validateThereIsALoginButton() throws InterruptedException {
 
         HomePage homePage = new HomePage(super.driver, (Logger) log);
+        homePage.openHomePage();
 
         System.out.println("Validate that login button is presented on home page");
         WebElement navLoginButton = driver.findElement(By.cssSelector("#nav-link-login"));
