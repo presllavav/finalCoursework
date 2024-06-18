@@ -1,7 +1,6 @@
 package com.skillo.POM;
 
 import org.apache.logging.log4j.Logger;
-import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -14,14 +13,15 @@ public class HomePage extends Iskilo {
 
     @FindBy (id = "nav-link-login")
     private WebElement navigationLoginButton;
-    @FindBy (id = "nav-link-new-post")
-    private WebElement navigationNewPostButton;
 
     @FindBy (xpath = "//ul[contains(@class,'navbar-nav my-ml d-none d-md-block')]")
     private WebElement navigationLogOutButton;
 
-    @FindBy (linkText= "/users/register")
+    @FindBy (linkText = "Register")
     private WebElement navigationRegisterButton;
+
+    @FindBy(xpath = "//div[3]//app-post-detail[1]//div[1]//div[2]//div[1]//div[1]//i[1]")
+    private WebElement likeButton;
 
     public HomePage (WebDriver driver, Logger log)  {
         super(driver,log);
@@ -36,17 +36,14 @@ public class HomePage extends Iskilo {
     public void navigateToLoginPageViaClickOnNavigationLoginButton(){
         waitAndClickOnWebElement(navigationLoginButton);
     }
-    public void clickOnNavButtonForNewPost(){
-        waitAndClickOnWebElement(navigationNewPostButton);
-    }
 
-    public void waitNewPostNavigationLinkToAppear(){
-        wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy((By) navigationNewPostButton));
-    }
-    public void navigateToRegisterPageViaClickOnRegisterButton(){
+    public void navigateToRegisterPageViaClickOnNavigationRegisterButton(){
         waitAndClickOnWebElement(navigationRegisterButton);
     }
+    public void likeButton() {
+        waitAndClickOnWebElement(likeButton);
 
+    }
     public boolean isLogOutButtonShown(){
         boolean isBUttonShown = false;
         log.info(" ACTION @ The user is verifying if the navigation log out button is presented");

@@ -2,17 +2,17 @@ package gui;
 
 import com.skillo.POM.HomePage;
 import com.skillo.POM.LoginPage;
+import com.skillo.POM.ProfilePage;
 import gui.base.TestBase;
 import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class LoginTest extends TestBase {
 
+public class DeletePostInProfilePage extends TestBase {
 
     @Test
-    public void declareViaNavigationLoginButtonUserCanNavigateToLoginPage() throws InterruptedException {
-
+    public void deletePost() throws InterruptedException {
         final String USERNAME = "Preslavaa";
         final String PASSWORD = "presi2345";
 
@@ -36,6 +36,17 @@ public class LoginTest extends TestBase {
         Thread.sleep(30);
 
         loginPage.clickOnLoginSubmitButton();
-        Thread.sleep(30);
-    }
-}
+
+
+        ProfilePage profilePage = new ProfilePage(super.driver,log);
+
+        profilePage.openProfilePage();
+
+        profilePage.clickPost();
+
+        profilePage.deletePost();
+
+        profilePage.areYouSureDeclaration();
+
+       }
+     }

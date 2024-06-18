@@ -5,25 +5,28 @@ import gui.base.TestBase;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class ValidationLayoutTest extends TestBase {
-
-    public static final int WAIT = 3333;
-
     @Test
-    public void validateThereIsAHomeIconInHomePageLayout() throws InterruptedException {
+    public void validateThereIsANavigationLinkHomeButtonInHomePageLayout() {
 
         HomePage homePage = new HomePage(super.driver, (Logger) log);
+        log.info("STEP 1: Not logged in user has open the ISkilo HomePage.");
         homePage.openHomePage();
+        boolean isLogOutButtonShown = homePage.isLogOutButtonShown();
+        Assert.assertFalse(isLogOutButtonShown);
 
 
-        WebElement element = driver.findElement(By.id("homeIcon"));
-        if(element.isDisplayed() && element.getSize().getWidth() == 126 && element.getSize().getHeight() == 50) {
-            System.out.println("Layout validation successful");
-        } else {
-            System.out.println("Layout validation failed");
-        }
+        WebElement layoutElement = driver.findElement(By.id("nav-link-home"));
+        Assert.assertTrue(layoutElement.isDisplayed(), "Layout is not displayed on the page");
+        String expectedLayout = "Home";
+        String actualLayout = layoutElement.getText();
+
+        Assert.assertEquals(actualLayout, expectedLayout, "Layout is not as expected");
+
+
         driver.quit();
 
     }

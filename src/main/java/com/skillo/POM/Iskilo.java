@@ -12,25 +12,22 @@ import java.time.Duration;
 
 public class Iskilo {
     final String BASE_URL = "http://training.skillo-bg.com:4200/";
-    static WebDriver driver;
-    static WebDriverWait wait;
-    Logger log;
+    protected static WebDriver driver;
+    protected static WebDriverWait wait;
+    protected static Logger log;
 
     public Iskilo(WebDriver driver,Logger log) {
-        this.driver = driver;
-        this.log = log;
+        Iskilo.driver = driver;
+        Iskilo.log = log;
         wait = new WebDriverWait(driver, Duration.ofSeconds(7));
     }
-
-
-
 
     public static void waitAndClickOnWebElement(WebElement elm) {
         wait.until(ExpectedConditions.visibilityOf(elm));
         wait.until(ExpectedConditions.elementToBeClickable(elm));
         elm .click();
         JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("return document.readyState").equals("complete");
+        boolean complete = js.executeScript("return document.readyState").equals("complete");
 
     }
 
@@ -42,21 +39,13 @@ public class Iskilo {
         js.executeScript("return document.readyState").equals("complete");
     }
 
-    public String requestedUrl(String pageSufix ) {
-        return BASE_URL+pageSufix;
-    }
     public void navigateTo(String pageURLsufix){
-        String currentURL = BASE_URL + pageURLsufix; //for better debug
+        String currentURL = BASE_URL + pageURLsufix;
 
         driver.get(currentURL);
         log.info("CONFIRM # The user has navigating to : " +currentURL);
 
         waitPageTobeFullLoaded();
-    }
-
-    public boolean isUrlLoaded(String pageURL) {
-        waitPageTobeFullLoaded();
-        return wait.until(ExpectedConditions.urlContains(pageURL));
     }
 
     public void waitPageTobeFullLoaded(){

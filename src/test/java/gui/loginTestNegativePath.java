@@ -13,13 +13,11 @@ import org.testng.annotations.Test;
 
 import java.time.Duration;
 
-public class LoginTestNegativePath {
+public class loginTestNegativePath {
     public static final String BASE_URL = "http://training.skillo-bg.com:4300/";
-    public static final String HOME_PAGE = BASE_URL+"posts/all";
-    public static final String LOGIN_PAGE = BASE_URL+"users/login";
-
     WebDriver driver = new ChromeDriver();
     WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(10));
+
 
     @BeforeMethod
     public void initBrowser() {
@@ -27,14 +25,12 @@ public class LoginTestNegativePath {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
     @Test
-    public void verifyUserCannotLoginWithWrongEmailOrPassword() {
+    public void verifyUserCannotLoginWithWrongEmailOrPassword() throws InterruptedException {
         driver.get(BASE_URL);
         System.out.println("Step: 1 *** The user has landing on ISkilo home page");
 
-        System.out.println("Step: 1.1. *** Verify home page title when user is not logged in");
-        String actualPageTitle = driver.getTitle();
 
-        System.out.println("Step: 1.2. -> Verify navigation login button is presented on home page");
+        System.out.println("Step: 1.1. -> Verify navigation login button is presented on home page");
         WebElement navLoginButton = driver.findElement(By.cssSelector("#nav-link-login"));
         boolean isNavLoginButtonShown = navLoginButton.isDisplayed();
         Assert.assertTrue(isNavLoginButtonShown);
@@ -80,7 +76,6 @@ public class LoginTestNegativePath {
 
         consoleLoggerForAMatch(actualRememberMeLabelText,expectedRememberMeLabelText);
 
-        WebElement checkBoxRememberMe = driver.findElement(By.xpath("//input[contains(@formcontrolname,'rememberMe')]"));
 
 
         System.out.println("Step: 3.5. -> Verify remember me check box is shown is per requirements ");
@@ -111,12 +106,14 @@ public class LoginTestNegativePath {
         consoleLoggerForAMatch(actualRegistrationLinkLabelText,expectedRegistrationLinkLabelText);
 
         System.out.println("STEP 4 : *** The user give unvalid username or email");
-        typeTextInInputField(userNameInputField,"testingDemos09");
-        String userProvedInputConfirmation = userNameInputField.getAttribute("value");
+        typeTextInInputField(userNameInputField,"pres");
+        userNameInputField.getAttribute("pres");
 
         System.out.println("Step 5 : *** The user give unvalid password ");
         passwordInputField.clear();
         passwordInputField.sendKeys("presi");
+
+
 
         System.out.println("Step 5 : *** The user submits the the login form by clicking on login submit button and error is shown");
         WebElement loginFormSubmitButton = driver.findElement(By.cssSelector("#sign-in-button"));
@@ -138,11 +135,6 @@ public class LoginTestNegativePath {
         System.out.println("Wrong username or password");
 
     }
-    public void clickOnElement(WebElement element) {
-        wait.until(ExpectedConditions.elementToBeClickable(element));
-        element.click();
-    }
-
 
 
     public void typeTextInInputField(WebElement element,String text) {
