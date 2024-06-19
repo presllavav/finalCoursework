@@ -1,4 +1,6 @@
 final Coursework
+
+
 This Java Maven test automation Project makes automation tests for http://training.skillo-bg.com:4300/posts/all with TestNG and
 Selenium Webdriver technologies.
 
